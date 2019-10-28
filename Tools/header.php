@@ -26,7 +26,7 @@
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?page=test">test</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=onglet1">Onglet 2</a>
+                        <a class="dropdown-item" href="index.php?page=accueil">Accueil</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index.php?page=onglet1">Onglet 3</a>
                     </div>
@@ -45,6 +45,10 @@
                     </a>
                 </li>
             </ul>
+            <form class="form-inline">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+            </form>
         </div>
     </nav>
 
