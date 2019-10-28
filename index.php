@@ -1,14 +1,14 @@
 <?php
 session_start();
 
-//spl_autoload_register($class);
-/*{
-    $path = str_replace('   \\', DIRECTORY_SEPARATOR, $class);
-    require_once('.\\' . $path . '.php');
+if (isset($_GET['page'])) {
+    $page = $_GET['page'];
+    include './Tools/header.php';
+    include './Tools/autoload.php';
+    include './pages/' . $page . '.php';
+    include './Tools/footer.php';
+} else {
+    include './Tools/header.php';
+    include './pages/index.php';
+    include './Tools/footer.php';
 }
-*/
-use Controllers\defaultController;
-
-$default = new defaultController;
-echo $default->indexAction();
-
