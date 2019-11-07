@@ -13,7 +13,7 @@
 
 <body>
     <nav class="sticky-top navbar navbar-expand-md navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php?page=accueil">Event</a>
+        <a class="navbar-brand" href="index.php?page=index">Event</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -22,40 +22,54 @@
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Evénements
+                        Évènements
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=test">test</a>
+                        <a class="dropdown-item" href="index.php?page=test">évènements</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=accueil">Accueil</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=onglet1">Onglet 3</a>
+                        <a class="dropdown-item" href="index.php?page=index">carte des évènements</a>
                     </div>
                 </li>
+            </ul>
+            <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         <?php echo (isset($_SESSION['login_Utilisateur']) ? $_SESSION['login_Utilisateur'] : 'Invité'); ?>
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=compte">Compte</a>
+                        <a class="dropdown-item" href="index.php?page=event">noter mes évènements</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="index.php?page=index">mes évènements à venir</a>
                     </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php?page=connexion" id="valide">
-                        Deconnexion
+            </ul>
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                 Contributeur
                     </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="index.php?page=test">Créer</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="index.php?page=index">Liste des mes évènements</a>
+                    </div>
                 </li>
             </ul>
+            <li class="nav-item active">
+                <a class="nav-link" href="#">Admin <span class="sr-only">(current)</span></a>
+            </li>
 
-            <form class="form-inline" style="margin-right: 6px">
-                <button class="btn btn-outline-success" type="button" style="margin-right: 4px">S'inscrire</button>
-                <button class="btn btn-sm btn-outline-secondary" type="button">Se connecter</button>
-            </form>
-            <form class="form-inline">
-                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                <button class="btn btn-outline-success my-2 my-sm-0 " type="submit" >Rechercher</button>
-            </form>
-            
+            <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Connexion
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.php?page=test">Connexion</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="index.php?page=index">S'inscrire</a>
+                </div>
+            </li>
+
         </div>
     </nav>
 
