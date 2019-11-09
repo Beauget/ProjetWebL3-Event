@@ -66,7 +66,7 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="index.php?page=test">Connexion</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.php?page=index">S'inscrire</a>
+                    <a class="dropdown-item" href="./Pages/createUser.php">S'inscrire</a>
                 </div>
             </li>
 

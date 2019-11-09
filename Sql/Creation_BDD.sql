@@ -86,6 +86,7 @@ CREATE TABLE VISITEUR (
   prenom VARCHAR(42),
   age NUMERIC(3,0),
   pseudo VARCHAR(42),
+password VARCHAR(42),
   CONSTRAINT PK_VISITEUR PRIMARY KEY (idvisit)
 ) ENGINE=InnoDB ;
 
