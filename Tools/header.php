@@ -66,7 +66,11 @@
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="index.php?page=test">Connexion</a>
                     <div class="dropdown-divider"></div>
+<<<<<<< HEAD
                     <a class="dropdown-item" href="index.php?page=createUser">S'inscrire</a>
+=======
+                    <a class="dropdown-item" href="./Pages/createUser.php">S'inscrire</a>
+>>>>>>> 68a4e18c03400b0e5758ccc0f6c974243801959d
                 </div>
             </li>
 

@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 <form method="post" action="./Controllers/createUserController.php">
+=======
+<form method="post" action="../Controllers/createUserController.php">
+>>>>>>> 68a4e18c03400b0e5758ccc0f6c974243801959d
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
         <input type="email" name="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Email">
