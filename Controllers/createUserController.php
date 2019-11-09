@@ -17,6 +17,7 @@ include '../Managers/visiteurManager.php';
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
 if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['age']) && isset($_POST['pseudo']) && isset($_POST['password'])){
+
     $visiteurManager = new visiteurManager($dbh);
 
 

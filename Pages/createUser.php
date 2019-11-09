@@ -1,3 +1,4 @@
+
 <form method="post" action="./Controllers/createUserController.php">
     <div class="form-group">
         <label for="exampleInputEmail1">Email</label>
