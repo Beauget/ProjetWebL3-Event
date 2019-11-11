@@ -1,6 +1,6 @@
 <?php
 
-class theme
+class creerSupprimerContrib
 {
 
     private $_idContrib;
