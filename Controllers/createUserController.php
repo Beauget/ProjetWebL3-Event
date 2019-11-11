@@ -1,7 +1,5 @@
 <?php 
 
-session_start();
-
 $dsn = 'mysql:dbname=evenements;host=127.0.0.1';
 $user = 'web';
 $password = 'ceciestunmotdepassesecurise';

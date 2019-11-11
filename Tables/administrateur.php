@@ -2,7 +2,6 @@
 
 class administrateur
 {
-
     private $idadmin;
     private $nom;
     private $prenom;
@@ -52,5 +51,4 @@ class administrateur
     {
         $this->$email = $email;
     }
-
 }

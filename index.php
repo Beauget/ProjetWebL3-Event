@@ -4,7 +4,7 @@ session_start();
 if (isset($_GET['page'])) {
     $page = $_GET['page'];
     include './Tools/header.php';
-    include './Tools/autoload.php';
+    include './Controllers/' . $page . 'Controller.php';
     include './pages/' . $page . '.php';
     include './Tools/footer.php';
 } else {
