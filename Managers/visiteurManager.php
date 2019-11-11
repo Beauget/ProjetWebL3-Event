@@ -22,7 +22,26 @@ class visiteurManager {
         $q->bindvalue(':password', $visiteur->getPassword(), PDO::PARAM_STR);
 
         $q->execute();
-    
+
+    }
+    public function selectEmail($email) {
+        $q = $this->_db->prepare('SELECT * FROM visiteur WHERE email = :email');
+        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+        $q->execute();
+        $check = $q->fetch(PDO::FETCH_BOUND);
+        return $check;
+    }
+
+
+
+    public function selectPseudo($pseudo) {
+        $q = $this->_db->prepare('SELECT * FROM visiteur WHERE pseudo = :pseudo');
+        $q->bindvalue(':pseudo',$pseudo,PDO::PARAM_STR);
+        $q->execute();
+        $check = $q->fetch(PDO::FETCH_BOUND);
+        return $check;
+
+
     }
 }
 

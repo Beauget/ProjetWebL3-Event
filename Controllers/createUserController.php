@@ -1,4 +1,5 @@
-<?php 
+<?php
+session_start();
 
 $dsn = 'mysql:dbname=evenements;host=127.0.0.1';
 $user = 'web';
@@ -14,28 +15,36 @@ include '../Managers/visiteurManager.php';
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['age']) && isset($_POST['pseudo']) && isset($_POST['password'])){
-
+if (isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['age']) && isset($_POST['pseudo']) && isset($_POST['password'])) {
     $visiteurManager = new visiteurManager($dbh);
 
+    if ($visiteurManager->selectEmail($_POST['email'])) {
+        $errorEmail = true;
+    } elseif ($visiteurManager->selectPseudo($_POST['pseudo'])) {
+        echo '<div class="alert alert-primary" role="alert">
+      Désoler ce pseudo existe déjà, vous allez être redirigé dans quelques instants...
+    </div>';
 
-    $email = $_POST['email'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $age = $_POST['age'];
-    $pseudo = $_POST['pseudo'];
-    $password = $_POST['password'];
+        header("refresh:3; url=../index.php?page=createUser");
+        exit();
+    } else {
 
 
-    $visiteur = new visiteur(0,$email,$nom,$prenom,$age,$pseudo,$password,7);
-    $visiteurManager->add($visiteur);
+        $email = $_POST['email'];
+        $nom = $_POST['nom'];
+        $prenom = $_POST['prenom'];
+        $age = $_POST['age'];
+        $pseudo = $_POST['pseudo'];
+        $password = $_POST['password'];
 
-    echo "Bravo DNS !";
-}
 
-else {
+        $visiteur = new visiteur(0, $email, $nom, $prenom, $age, $pseudo, $password, 7);
+        $visiteurManager->add($visiteur);
+
+        echo "Bravo DNS !";
+    }
+} else {
     echo "Erreur Controller !";
 }
-
 
 ?>
