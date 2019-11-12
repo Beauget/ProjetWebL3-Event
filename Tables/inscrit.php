@@ -1,8 +1,6 @@
- 	 	 
-
 <?php
 
-class aLieu
+class inscrit
 {
 
 
