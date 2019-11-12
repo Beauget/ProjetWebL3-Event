@@ -1,5 +1,3 @@
- 	 	 	 	 	 	 	 
-
 <?php
 
 class lieu
@@ -77,7 +75,7 @@ class lieu
     {
         return this->_idlieu;
     }
-    
+
     public function getPays()
     {
         return this->_pays;
