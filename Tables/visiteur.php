@@ -12,6 +12,24 @@ class visiteur
     private $_password;
 
 
+    public function __construct($idvisit, $email, $prenom, $nom, $age, $pseudo, $password, $args)
+    {
+        switch ($args) {
+            case 7:
+                $this->setIdvisit($idvisit);
+                $this->setEmail($email);
+                $this->setNom($nom);
+                $this->setPrenom($prenom);
+                $this->setAge($age);
+                $this->setPseudo($pseudo);
+                $this->setPassword($password);
+                break;
+            default:
+                echo "Le nombre d'argument est incorrect ! ";
+                $this->__destruct();
+        }
+    }
+
 
 
     public function setPrenom($prenom)
@@ -83,21 +101,5 @@ class visiteur
         $this->_password = $password;
     }
 
-    public function __construct($idvisit, $email, $prenom, $nom, $age, $pseudo, $password, $args)
-    {
-        switch ($args) {
-            case 7:
-                $this->setIdvisit($idvisit);
-                $this->setEmail($email);
-                $this->setNom($nom);
-                $this->setPrenom($prenom);
-                $this->setAge($age);
-                $this->setPseudo($pseudo);
-                $this->setPassword($password);
-                break;
-            default:
-                echo "Le nombre d'argument est incorrect ! ";
-                $this->__destruct();
-        }
-    }
+    
 }

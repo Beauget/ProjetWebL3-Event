@@ -64,7 +64,7 @@
                     Connexion
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="index.php?page=test">Connexion</a>
+                    <a class="dropdown-item" href="index.php?page=connexion">Connexion</a>
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.php?page=createUser">S'inscrire</a>
                 </div>
