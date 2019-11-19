@@ -69,7 +69,6 @@
                     <a class="dropdown-item" href="index.php?page=createUser">S'inscrire</a>
                 </div>
             </li>
-
         </div>
     </nav>
 

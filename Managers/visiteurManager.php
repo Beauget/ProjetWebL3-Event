@@ -40,8 +40,14 @@ class visiteurManager {
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
         return $check;
+    }
 
-
+    public function selectPassword($password) {
+        $q = $this->_db->prepare('SELECT * FROM visiteur WHERE password = :password');
+        $q->bindvalue(':password',$password,PDO::PARAM_STR);
+        $q->execute();
+        $check = $q->fetch(PDO::FETCH_BOUND);
+        return $check;
     }
 }
 

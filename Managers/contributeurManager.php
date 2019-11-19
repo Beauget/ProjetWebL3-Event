@@ -48,8 +48,7 @@ class ContributeurManager {
         $q->bindvalue(':password',$password,PDO::PARAM_STR);
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
+        echo $check;
         return $check;
     }
 }
-
-?>

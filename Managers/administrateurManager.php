@@ -30,13 +30,12 @@ class administrateurManager {
         return $check;
     }
 
-
-
     public function selectPassword($password) {
         $q = $this->_db->prepare('SELECT * FROM administrateur WHERE password = :password');
         $q->bindvalue(':password',$password,PDO::PARAM_STR);
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
+        echo $check;
         return $check;
     }
 }
