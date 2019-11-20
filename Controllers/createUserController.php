@@ -42,9 +42,9 @@ if (isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) &&
     $pseudo = htmlentities($_POST['pseudo']);
     $password = crypt(htmlentities($_POST['password']),'dns');
 
+
     $visiteur = new visiteur(0, $email, $nom, $prenom, $age, $pseudo, $password, 7);
     $visiteurManager->add($visiteur);
-
    header("refresh:1; url=../index.php?page=index");
     exit();
   }

@@ -42,7 +42,6 @@ class ContributeurManager {
         return $check;
 
     }
-
     public function selectPassword($password,$email) {
         $q = $this->_db->prepare('SELECT idvisit FROM visiteur WHERE email = :email AND password = :password');
         $q->bindvalue(':password',$password,PDO::PARAM_STR);
