@@ -25,7 +25,14 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     $administrateurManager = new administrateurManager($dbh);
     $contributeurManager = new contributeurManager($dbh);
 
-    if($visiteurManager->selectEmail($_POST['email']) && $visiteurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT))){
+    if($visiteurManager->selectEmail($_POST['email']) && $visiteurManager->selectPassword(crypt($_POST['password'],'dns'),$_POST['email'])){
+        echo '<div class="alert alert-primary" role="alert">
+        <p>Connexion !</p>
+      </div>';
+      header("refresh:1; url=../index.php?page=index");
+    }
+
+   else if($administrateurManager->selectEmail($_POST['email']) && $administrateurManager->selectPassword(crypt($_POST['password'],'dns'),$_POST['email'])){
         echo '<div class="alert alert-primary" role="alert">
         <p>Connexion !</p>
       </div>';
@@ -33,15 +40,7 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
       header("refresh:1; url=../index.php?page=index");
     }
 
-    else if($administrateurManager->selectEmail($_POST['email']) && $administrateurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT))){
-        echo '<div class="alert alert-primary" role="alert">
-        <p>Connexion !</p>
-      </div>';
-
-      header("refresh:1; url=../index.php?page=index");
-    }
-
-    else if($contributeurManager->selectEmail($_POST['email']) && $contributeurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT))){
+    else if($contributeurManager->selectEmail($_POST['email']) && $contributeurManager->selectPassword(crypt($_POST['password'],'dns'),$_POST['email'])){
         echo '<div class="alert alert-primary" role="alert">
         <p>Connexion !</p>
       </div>';
@@ -50,14 +49,9 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
     }
 
     else {
-        //echo $visiteurManager->selectEmail($_POST['email']);
-        echo $visiteurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT));
-        echo $contributeurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT));
-        echo $administrateurManager->selectPassword(password_hash($_POST['password'],PASSWORD_DEFAULT));
-        echo '<div class="alert alert-primary" role="alert">
+       echo '<div class="alert alert-primary" role="alert">
         <p>Ce compte existe pas veuillez vous inscrire ! </p>
       </div>';
     }
-
 }
 ?>

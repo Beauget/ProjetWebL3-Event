@@ -40,12 +40,12 @@ if (isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) &&
     $prenom = htmlentities($_POST['prenom']);
     $age = htmlentities($_POST['age']);
     $pseudo = htmlentities($_POST['pseudo']);
-    $password = password_hash(htmlentities($_POST['password']), PASSWORD_DEFAULT);
+    $password = crypt(htmlentities($_POST['password']),'dns');
+
 
     $visiteur = new visiteur(0, $email, $nom, $prenom, $age, $pseudo, $password, 7);
     $visiteurManager->add($visiteur);
-
-    header("refresh:1; url=../index.php?page=index");
+   header("refresh:1; url=../index.php?page=index");
     exit();
   }
 }
