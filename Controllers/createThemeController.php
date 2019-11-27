@@ -1,24 +1,17 @@
 <?php 
-
-$dsn = 'mysql:dbname=evenements;host=127.0.0.1';
-$user = 'web';
-$password = 'ceciestunmotdepassesecurise';
-try {
-    $dbh = new PDO($dsn, $user, $password);
-} catch (PDOException $e) {
-    echo 'Connexion échouée : ' . $e->getMessage();
-}
-
+include '../Tools/connexionBdd.php';
 include '../Tables/theme.php';
 include '../Managers/themeManager.php';
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && isset($_POST['age']) && isset($_POST['pseudo']) && isset($_POST['password'])){
-
-    $visiteurManager = new visiteurManager($dbh);
+if(isset($_POST['nom']) && isset($_POST['categorie'])){
 
 
+    $themeManager = new themeManager($dbh);
+
+    nom
+    categorie
     $email = $_POST['email'];
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
@@ -27,7 +20,7 @@ if(isset($_POST['email']) && isset($_POST['prenom']) && isset($_POST['nom']) && 
     $password = $_POST['password'];
 
 
-    $visiteur = new visiteur(0,$email,$nom,$prenom,$age,$pseudo,$password,7);
+    $theme = new visiteur(0,$email,$nom,$prenom,$age,$pseudo,$password,5);
     $visiteurManager->add($visiteur);
 
     echo "Bravo DNS !";

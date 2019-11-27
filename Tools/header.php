@@ -12,8 +12,8 @@
 </head>
 
 <body>
-    <nav class="sticky-top navbar navbar-expand-md navbar-expand-lg navbar-dark bg-dark">
-        <a class="navbar-brand" href="index.php?page=index">Event</a>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <a class="navbar-brand" href="#">Event</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -30,11 +30,9 @@
                         <a class="dropdown-item" href="index.php?page=index">carte des évènements</a>
                     </div>
                 </li>
-            </ul>
-            <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <?php echo (isset($_SESSION['login_Utilisateur']) ? $_SESSION['login_Utilisateur'] : 'Invité'); ?>
+                        Invité
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?page=event">noter mes évènements</a>
@@ -42,11 +40,9 @@
                         <a class="dropdown-item" href="index.php?page=index">mes évènements à venir</a>
                     </div>
                 </li>
-            </ul>
-            <ul class="navbar-nav mr-auto">
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                 Contributeur
+                        Contributeur
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?page=test">Créer</a>
@@ -55,11 +51,17 @@
                     </div>
                 </li>
             </ul>
-            <li class="nav-item active">
-                <a class="nav-link" href="index.php?page=admin">Admin</a>
+            <li class="navbar-nav dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Administration
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.php?page=createTheme">Gérer thèmes</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="index.php?page=alterContributor">Gérer contributeurs</a>
+                </div>
             </li>
-
-            <li class="nav-item dropdown">
+            <li class="navbar-nav dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Connexion
                 </a>
@@ -69,10 +71,13 @@
                     <a class="dropdown-item" href="index.php?page=createUser">S'inscrire</a>
                 </div>
             </li>
+
         </div>
     </nav>
 
-
+    <!-- 
+ echo (isset($_SESSION['Administrateur']) ? $_SESSION['login_Utilisateur'] : 'Invité');
+    -->
 
     <div class="container-fluid">
         <div class="row">
