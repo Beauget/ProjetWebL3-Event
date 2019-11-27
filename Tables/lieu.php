@@ -101,7 +101,7 @@ class lieu
         return this->_code_postal;
     }
 
-    public function gtPositionLong()
+    public function getPositionLong()
     {
         return this->_position_long;
     }
