@@ -26,10 +26,13 @@ if (isset($_POST['email']) && isset($_POST['password'])) {
   $contributeurManager = new contributeurManager($dbh);
 
   if ($visiteurManager->selectEmail($_POST['email']) && $visiteurManager->selectPassword(crypt($_POST['password'], 'dns'), $_POST['email'])) {
+    $_SESSION['Visiteur'] = true;
     header("refresh:1; url=../index.php?page=index");
   } else if ($administrateurManager->selectEmail($_POST['email']) && $administrateurManager->selectPassword(crypt($_POST['password'], 'dns'), $_POST['email'])) {
+    $_SESSION['Administrateur'] = true;
     header("refresh:1; url=../index.php?page=index");
   } else if ($contributeurManager->selectEmail($_POST['email']) && $contributeurManager->selectPassword(crypt($_POST['password'], 'dns'), $_POST['email'])) {
+    $_SESSION['Contributeur'] = true;
     header("refresh:1; url=../index.php?page=index");
   } else {
     $error = 'Ce compte n\'existe pas veuillez vous inscrire !';
