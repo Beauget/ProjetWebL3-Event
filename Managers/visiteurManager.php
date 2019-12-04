@@ -49,6 +49,7 @@ class visiteurManager {
         $q->bindvalue(':email',$email,PDO::PARAM_STR);
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
+        return $check;
     }
 }
 
