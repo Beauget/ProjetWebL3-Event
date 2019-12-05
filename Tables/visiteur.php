@@ -26,7 +26,6 @@ class visiteur
                 break;
             default:
                 echo "Le nombre d'argument est incorrect ! ";
-                $this->__destruct();
         }
     }
 

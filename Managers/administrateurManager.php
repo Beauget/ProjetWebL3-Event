@@ -30,6 +30,16 @@ class administrateurManager {
         return $check;
     }
 
+    public function selectId($email) {
+        $q = $this->_db->prepare('SELECT idadmin FROM administrateur WHERE email = :email');
+        $id = "";
+        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+        $q->execute();
+        $idRes = $q->fetch();
+        $id = $idRes[0];
+        return $id;
+    }
+
 
     public function selectPassword($password,$email) {
         $q = $this->_db->prepare('SELECT idvisit FROM visiteur WHERE email = :email AND password = :password');

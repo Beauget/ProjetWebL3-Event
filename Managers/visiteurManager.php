@@ -42,6 +42,17 @@ class visiteurManager {
         return $check;
     }
 
+    public function selectPostPseudo($email) {
+        $q = $this->_db->prepare('SELECT pseudo FROM visiteur WHERE email = :email');
+        $pseudo = "";
+        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+        $q->execute();
+        $pseudoRes = $q->fetch();
+        $pseudo = $pseudoRes[0];
+        return $pseudo;
+    }
+
+
 
     public function selectPassword($password,$email) {
         $q = $this->_db->prepare('SELECT idvisit FROM visiteur WHERE email = :email AND password = :password');

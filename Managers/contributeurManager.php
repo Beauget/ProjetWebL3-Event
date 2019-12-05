@@ -12,8 +12,8 @@ class ContributeurManager {
     }
 
     public function add(contributeur $contributeur) {
-        $q = $this->_db->prepare('INSERT INTO contributeur(idvisit,email, nom,prenom,age,pseudo,password) VALUES(:idvisit, :email, :prenom,:nom, :age, :pseudo,:password)');
-        $q->bindvalue(':idvisit', $contributeur->getId(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('INSERT INTO contributeur(idcontrib,email, nom,prenom,age,pseudo,password) VALUES(:idcontrib, :email, :prenom,:nom, :age, :pseudo,:password)');
+        $q->bindvalue(':idcontrib', $contributeur->getId(), PDO::PARAM_INT);
         $q->bindvalue(':email', $contributeur->getEmail(), PDO::PARAM_STR);
         $q->bindvalue(':prenom', $contributeur->getPrenom(), PDO::PARAM_STR);
         $q->bindvalue(':nom', $contributeur->getNom(), PDO::PARAM_STR);
@@ -30,6 +30,16 @@ class ContributeurManager {
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
         return $check;
+    }
+
+    public function selectPostPseudo($email) {
+        $q = $this->_db->prepare('SELECT pseudo FROM contributeur WHERE email = :email');
+        $pseudo = "";
+        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+        $q->execute();
+        $pseudoRes = $q->fetch();
+        $pseudo = $pseudoRes[0];
+        return $pseudo;
     }
 
 

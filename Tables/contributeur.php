@@ -25,7 +25,6 @@ class contributeur
                 break;
             default:
                 echo "Le nombre d'argument est incorrect ! ";
-                $this->__destruct();
         }
     }
 
@@ -61,6 +60,10 @@ class contributeur
     public function setPseudo($pseudo)
     {
         $this->_pseudo = $pseudo;
+    }
+
+    public function getId() {
+        return $this->_idcontrib;
     }
 
     public function getIdContrib()
