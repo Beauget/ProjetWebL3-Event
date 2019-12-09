@@ -52,12 +52,12 @@ $_SESSION['ok'] = true;
 
   if ($error != 'Password Incorrect') {
     foreach ($allContributeur as $contrib) {
-      if ($contrib[1] == $contributeur->getEmail()) {
-        $_SESSION['email'] = $contrib[1];
-        $_SESSION['pseudo'] = $contrib[5];
-        $_SESSION['nom'] = $contrib[2];
-        $_SESSION['prenom'] = $contrib[3];
-        $_SESSION['age'] = $contrib[4];
+      if ($contrib[2] == $contributeur->getEmail()) {
+        $_SESSION['email'] = $contrib[2];
+        $_SESSION['pseudo'] = $contrib[6];
+        $_SESSION['nom'] = $contrib[3];
+        $_SESSION['prenom'] = $contrib[4];
+        $_SESSION['age'] = $contrib[5];
         $_SESSION['idContributeur'] = $contrib[0];
         break;
       }

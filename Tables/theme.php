@@ -26,7 +26,7 @@ class theme
     }
 
 
-    public function setTheme($idtheme)
+    public function setIdTheme($idtheme)
     {
         $this->_idTheme = $idtheme;
     }
@@ -53,27 +53,27 @@ class theme
 
     public function getIdTheme()
     {
-        return this->_idTheme;
+        return $this->_idTheme;
     }
 
     public function getNom()
     {
-        return this->_nom;
+        return $this->_nom;
     }
 
     public function getCategorie()
     {
-        return this->_categorie;
+        return $this->_categorie;
     }
 
     public function getIdAdminIndex()
     {
-        return this->_idAdminIndex;
+        return $this->_idAdminIndex;
     }
 
     public function getDate()
     {
-        return this->_dateCRE_T_SUP_T;
+        return $this->_dateCRE_T_SUP_T;
     }
     
 }

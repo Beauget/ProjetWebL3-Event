@@ -1,37 +1,32 @@
-<?php 
+<?php
 if (session_status() == PHP_SESSION_NONE) {
     session_start();
 }
-include '../Tools/connexionBdd.php';
-include '../Tables/theme.php';
-include '../Managers/themeManager.php';
+
+include dirname(__DIR__) . '/Tools/connexionBdd.php';
+include dirname(__DIR__) . '/Tables/theme.php';
+include dirname(__DIR__) . '/Managers/themeManager.php';
 
 $dbh->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-if(isset($_POST['nom']) && isset($_POST['categorie'])){
+$themeManager = new themeManager($dbh);
 
+if (isset($_POST['catTheme']) && isset($_POST['nomTheme'])) {
 
-    $themeManager = new themeManager($dbh);
+    $theme = new theme(0, $_POST['nomTheme'], $_POST['catTheme'], $_SESSION['idAdministrateur'], date("Y-m-d"), 5);
 
-    nom
-    categorie
-    $email = $_POST['email'];
-    $nom = $_POST['nom'];
-    $prenom = $_POST['prenom'];
-    $age = $_POST['age'];
-    $pseudo = $_POST['pseudo'];
-    $password = $_POST['password'];
-
-
-    $theme = new visiteur(0,$email,$nom,$prenom,$age,$pseudo,$password,5);
-    $visiteurManager->add($visiteur);
-
-    echo "Bravo DNS !";
+    $themeManager->add($theme);
+    header("refresh:1; url=../index.php?page=createTheme");
+    exit();
 }
 
-else {
-    echo "Erreur Controller !";
+if (isset($_POST['nomTh']) && isset($_POST['catTh']) && isset($_POST['date'])) {
+    $themeSelect = new theme(0, $_POST['nomTh'], $_POST['catTh'], 0, $_POST['date'], 5);
+    $result = $themeManager->selectByNom($themeSelect);
+    $themeARemove = new theme($result[0][0], $result[0][1], $result[0][2], $result[0][3], $result[0][4], 5);
+    $themeManager->removeOne($themeARemove);
+    header("refresh:1; url=../index.php?page=createTheme");
+    exit();
 }
 
-
-?>
+$themeArray = $themeManager->selectAll();
