@@ -1,5 +1,7 @@
 <?php
-
+if (session_status() == PHP_SESSION_NONE) {
+  session_start();
+}
 include dirname(__DIR__) . '/Tools/connexionBdd.php';
 include dirname(__DIR__) . '/Tables/visiteur.php';
 include dirname(__DIR__) . '/Managers/visiteurManager.php';

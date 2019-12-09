@@ -99,6 +99,4 @@ class visiteur
     {
         $this->_password = $password;
     }
-
-    
 }

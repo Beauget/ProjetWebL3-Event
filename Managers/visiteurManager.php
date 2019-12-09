@@ -62,6 +62,14 @@ class visiteurManager {
         $check = $q->fetch(PDO::FETCH_BOUND);
         return $check;
     }
+
+    public function selectAll() {
+        $q = $this->_db->prepare('SELECT * FROM visiteur');
+        $q->execute();
+        return $q->fetchAll();
+    }
 }
 
 ?>
+    
+

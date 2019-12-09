@@ -1,5 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
+<?php
+if (session_status() == PHP_SESSION_NONE) {
+    session_start();
+}
+?>
 
 <head>
     <meta charset="UTF-8">
@@ -30,28 +35,36 @@
                         <a class="dropdown-item" href="index.php?page=index">carte des évènements</a>
                     </div>
                 </li>
-                <li class="nav-item dropdown">
+
+                <?php
+                echo (isset($_SESSION['idVisiteur']) ? ' <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Évènements de ' . $_SESSION['pseudo'] . '
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                    <a class="dropdown-item" href="index.php?page=event">noter mes évènements</a>
+                    <div class="dropdown-divider"></div>
+                    <a class="dropdown-item" href="index.php?page=index">mes évènements à venir</a>
+                </div>
+            </li>' : '');
+                ?>
+
+
+                <?php echo (isset($_SESSION['idContributeur']) ? '<li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Invité
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=event">noter mes évènements</a>
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=index">mes évènements à venir</a>
-                    </div>
-                </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Contributeur
+                    Contributeur ' . $_SESSION['pseudo'] . '
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                         <a class="dropdown-item" href="index.php?page=test">Créer</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="index.php?page=index">Liste des mes évènements</a>
                     </div>
-                </li>
+                </li>' : ''); ?>
+
+
             </ul>
-            <li class="navbar-nav dropdown">
+
+            <?php echo (isset($_SESSION['idAdministrateur']) ? '<li class="navbar-nav dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Administration
                 </a>
@@ -60,23 +73,31 @@
                     <div class="dropdown-divider"></div>
                     <a class="dropdown-item" href="index.php?page=alterContributor">Gérer contributeurs</a>
                 </div>
-            </li>
-            <li class="navbar-nav dropdown">
+            </li>' : ''); ?>
+
+            <?php echo (isset($_SESSION['idVisiteur']) ? '<li class="navbar-nav dropdown">
+                 <li class="navbar-nav">
+                 <a class="nav-link" href="index.php?page=deconnexion">Déconnexion</a>
+               </li>' : '<li class="navbar-nav dropdown">
                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Connexion
                 </a>
                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                     <a class="dropdown-item" href="index.php?page=connexion">Connexion</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="index.php?page=createUser">S'inscrire</a>
+                    <a class="dropdown-item" href="index.php?page=createUser">Inscription</a>
                 </div>
-            </li>
+            </li>'); ?>
+            
 
         </div>
     </nav>
 
     <!-- 
- echo (isset($_SESSION['Administrateur']) ? $_SESSION['login_Utilisateur'] : 'Invité');
+        $_SESSION['Contributeur'] = true
+        $_SESSION['Administrateur'] = true
+        $_SESSION['Visiteur'] = true
+ echo (isset($_SESSION['Administrateur']) ? $_SESSION['Visiteur'] ? '' : '' : '');
     -->
 
     <div class="container-fluid">

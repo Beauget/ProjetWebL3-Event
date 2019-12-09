@@ -9,9 +9,8 @@ class contributeur
     private $_prenom;
     private $_age;
     private $_pseudo;
-    private $_password;
 
-    public function __construct($idcontrib, $email, $nom, $prenom, $age, $pseudo,$password, $args)
+    public function __construct($idcontrib, $email, $nom, $prenom, $age, $pseudo, $args)
     {
         switch ($args) {
             case 6:
@@ -21,15 +20,10 @@ class contributeur
                 $this->setPrenom($prenom);
                 $this->setAge($age);
                 $this->setPseudo($pseudo);
-                $this->setPassword($password);
                 break;
             default:
                 echo "Le nombre d'argument est incorrect ! ";
         }
-    }
-
-    public function setPassword($password){
-        $this->_password = $password;
     }
 
     public function setIdContrib($idcontrib)
@@ -94,9 +88,6 @@ class contributeur
     public function getPseudo()
     {
         return $this->_pseudo;
-    }
-    public function getPassword(){
-        return $this->_password;
     }
 
 }

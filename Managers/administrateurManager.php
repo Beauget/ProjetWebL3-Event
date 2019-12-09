@@ -12,12 +12,11 @@ class administrateurManager {
     }
 
     public function add(administrateur $admin) {
-        $q = $this->_db->prepare('INSERT INTO administrateur(idadmin,nom,prenom,email,password) VALUES(:idadmin, :nom, :prenom,:email,:password)');
+        $q = $this->_db->prepare('INSERT INTO administrateur(idadmin,nom,prenom,email) VALUES(:idadmin, :nom, :prenom,:email)');
         $q->bindvalue(':idvisit', $admin->getIdAdmin(), PDO::PARAM_INT);
         $q->bindvalue(':email', $admin->getEmail(), PDO::PARAM_STR);
         $q->bindvalue(':prenom', $admin->getPrenom(), PDO::PARAM_STR);
         $q->bindvalue(':nom', $admin->getNom(), PDO::PARAM_STR);
-        $q->bindvalue(':password', $admin->getPassword(), PDO::PARAM_STR);
 
         $q->execute();
 
@@ -40,14 +39,10 @@ class administrateurManager {
         return $id;
     }
 
-
-    public function selectPassword($password,$email) {
-        $q = $this->_db->prepare('SELECT idvisit FROM visiteur WHERE email = :email AND password = :password');
-        $q->bindvalue(':password',$password,PDO::PARAM_STR);
-        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+    public function selectAll() {
+        $q = $this->_db->prepare('SELECT * FROM administrateur');
         $q->execute();
-        $check = $q->fetch(PDO::FETCH_BOUND);
-        return $check;
+        return $q->fetchAll();
     }
 }
 

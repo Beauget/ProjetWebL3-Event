@@ -6,15 +6,13 @@ class administrateur
     private $nom;
     private $prenom;
     private $email;
-    private $password;
 
-    public function __construct($idadmin, $nom, $prenom, $email, $password)
+    public function __construct($idadmin, $nom, $prenom, $email)
     {
         $this->setIdAdmin($idadmin);
         $this->setNom($nom);
         $this->setPrenom($prenom);
         $this->setEmail($email);
-        $this->setPassword($password);
     }
 
     public function getIdAdmin()
@@ -36,10 +34,6 @@ class administrateur
     {
         return $this->email;
     }
-    public function getPassword()
-    {
-        return $this->password;
-    }
 
     private function setIdAdmin($idadmin)
     {
@@ -60,9 +54,5 @@ class administrateur
     {
         $this->email = $email;
     }
-    private function setPassword($password)
-    {
 
-        $this->password = $password;
-    }
 }
