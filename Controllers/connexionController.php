@@ -24,7 +24,7 @@ $error = '';
 if (isset($_POST['email']) && isset($_POST['password'])) {
 $_SESSION['ok'] = true;
   $visiteur = new visiteur(0, $_POST['email'], '0', '0', 0, '0', $_POST['password'], 7);
-  $contributeur = new contributeur(0, $_POST['email'], '0', '0', 0, '0', 6);
+  $contributeur = new contributeur(0, $_POST['email'], '0', '0', 0, '0', '0', '0',8);
   $administrateur = new administrateur(0, '0', '0', $_POST['email']);
 
   $allVisiteur = $visiteurManager->selectAll();
