@@ -15,7 +15,6 @@
         <div class="col-md-12">
             <div class="row">
                 <?php
-
                 foreach ($themeArray as $th) {
                     echo '<div class="col-md-4">
 <div class="card text-white bg-secondary mb-3" style="max-width: 18rem;">

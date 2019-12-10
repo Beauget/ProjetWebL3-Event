@@ -12,23 +12,30 @@ class ContributeurManager {
     }
 
     public function add(contributeur $contributeur) {
-        $q = $this->_db->prepare('INSERT INTO contributeur(idcontrib,email, nom,prenom,age,pseudo) VALUES(:idcontrib, :email, :prenom,:nom, :age, :pseudo)');
-        $q->bindvalue(':idcontrib', $contributeur->getId(), PDO::PARAM_INT);
+        $q = $this->_db->prepare('INSERT INTO contributeur(idadmin ,email, nom, prenom, age, pseudo, password) VALUES(:idadmin, :email, :prenom,:nom, :age, :pseudo, :password)');
+        $q->bindvalue(':idadmin', $contributeur->getIdAdmin(), PDO::PARAM_INT);
         $q->bindvalue(':email', $contributeur->getEmail(), PDO::PARAM_STR);
         $q->bindvalue(':prenom', $contributeur->getPrenom(), PDO::PARAM_STR);
         $q->bindvalue(':nom', $contributeur->getNom(), PDO::PARAM_STR);
         $q->bindvalue(':age', $contributeur->getAge(), PDO::PARAM_INT);
         $q->bindvalue(':pseudo', $contributeur->getPseudo(), PDO::PARAM_STR);
-
+        $q->bindvalue(':password', $contributeur->getPassword(), PDO::PARAM_STR);
         $q->execute();
-
     }
+
     public function selectEmail($email) {
         $q = $this->_db->prepare('SELECT * FROM contributeur WHERE email = :email');
         $q->bindvalue(':email',$email,PDO::PARAM_STR);
         $q->execute();
         $check = $q->fetch(PDO::FETCH_BOUND);
         return $check;
+    }
+
+    public function selectId($contributeur) {
+        $q = $this->_db->prepare('SELECT * FROM contributeur WHERE idcontrib = :idcontrib');
+        $q->bindvalue(':idcontrib', $contributeur->getId(), PDO::PARAM_INT);
+        $q->execute();
+        return $q->fetchAll();
     }
 
     public function selectPostPseudo($email) {

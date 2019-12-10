@@ -24,6 +24,7 @@ class visiteurManager {
         $q->execute();
 
     }
+    
     public function selectEmail($email) {
         $q = $this->_db->prepare('SELECT * FROM visiteur WHERE email = :email');
         $q->bindvalue(':email',$email,PDO::PARAM_STR);
@@ -32,7 +33,12 @@ class visiteurManager {
         return $check;
     }
 
-
+    public function selectId(visiteur $visiteur) {
+        $q = $this->_db->prepare('SELECT * FROM visiteur WHERE idvisit = :idvisit');
+        $q->bindvalue(':idvisit',$visiteur->getId(),PDO::PARAM_INT);
+        $q->execute();
+        return $q->fetchAll();
+    }
 
     public function selectPseudo($pseudo) {
         $q = $this->_db->prepare('SELECT * FROM visiteur WHERE pseudo = :pseudo');
@@ -69,7 +75,3 @@ class visiteurManager {
         return $q->fetchAll();
     }
 }
-
-?>
-    
-

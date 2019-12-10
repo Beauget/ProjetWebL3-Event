@@ -42,7 +42,7 @@ class visiteur
 
     public function setIdvisit($id)
     {
-        $this->_id = $id;
+        $this->_idvisit = $id;
     }
 
     public function getEmail()
