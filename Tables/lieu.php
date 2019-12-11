@@ -4,7 +4,6 @@ class lieu
 {
 
     private $_idlieu;
-    private $_pays;
     private $_ville;
     private $_rue;
     private $_numero_rue;
@@ -12,12 +11,11 @@ class lieu
     private $_position_long;
     private $_position_lat;
 
-    public function __construct($idlieu, $pays, $ville, $rue, $numeroRue, $codePostal, $positionLong, $positionLat, $args)
+    public function __construct($idlieu, $ville, $rue, $numeroRue, $codePostal, $positionLong, $positionLat, $args)
     {
         switch ($args) {
             case 8:
                 $this->setIdLieu($idlieu);
-                $this->setPays($pays);
                 $this->setVille($ville);
                 $this->setRue($rue);
                 $this->setNumeroRue($numeroRue);
@@ -27,7 +25,6 @@ class lieu
                 break;
             default:
                 echo "Le nombre d'argument est incorrect ! ";
-                $this->__destruct();
         }
     }
 
@@ -35,12 +32,6 @@ class lieu
     {
         $this->_idlieu = $idlieu;
     }
-
-    public function setPays($pays)
-    {
-        $this->_pays = $pays;
-    }
-
     public function setVille($ville)
     {
         $this->_ville = $ville;
@@ -73,41 +64,37 @@ class lieu
 
     public function getIdLieu()
     {
-        return this->_idlieu;
+        return $this->_idlieu;
     }
 
-    public function getPays()
-    {
-        return this->_pays;
-    }
 
     public function getVille()
     {
-        return this->_ville;
+        return $this->_ville;
     }
 
     public function getRue()
     {
-        return this->_rue;
+        return $this->_rue;
     }
 
     public function getNumeroRue()
     {
-        return this->_numero_rue;
+        return $this->_numero_rue;
     }
 
     public function getCodePostal()
     {
-        return this->_code_postal;
+        return $this->_code_postal;
     }
 
     public function getPositionLong()
     {
-        return this->_position_long;
+        return $this->_position_long;
     }
 
     public function getPositionLat()
     {
-        return this->_position_lat;
+        return $this->_position_lat;
     }
 }

@@ -33,6 +33,13 @@ class themeManager
         return $q->fetchAll();
     }
 
+    public function selectAllName()
+    {
+        $q = $this->_db->prepare('SELECT nom FROM theme');
+        $q->execute();
+        return $q->fecthAll();
+    }
+
     public function selectByNom($theme)
     {
         $q = $this->_db->prepare('SELECT * FROM theme WHERE nom = :nomTheme');

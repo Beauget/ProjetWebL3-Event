@@ -22,13 +22,12 @@ DROP TABLE IF EXISTS CONTRIBUTEUR;
 
 CREATE TABLE LIEU (
   idlieu INTEGER NOT NULL AUTO_INCREMENT,
-  pays VARCHAR(42),
   ville VARCHAR(42),
   rue VARCHAR(42),
   numero_rue NUMERIC(5),
   code_postal VARCHAR(42),
-  position_long NUMERIC(5,4),
-  position_lat NUMERIC(5,4),
+  position_long DECIMAL(14,11),
+  position_lat DECIMAL(14,11),
   CONSTRAINT PK_LIEU PRIMARY KEY (idlieu)
 ) ENGINE=InnoDB ;
 
@@ -40,12 +39,14 @@ CREATE TABLE A_LIEU (
 
 CREATE TABLE EVENEMENT (
   idevent INTEGER NOT NULL AUTO_INCREMENT,
+  nomEvent VARCHAR(42),
   dateEvent DATE,
   effectif_min NUMERIC(10),
   effectif_max NUMERIC(10),
   idcontrib INTEGER NOT NULL,
   idtheme INTEGER NOT NULL,
   idlieu INTEGER NOT NULL,
+  description VARCHAR(150),
   dateCRE_E_SUP_E DATE,
   CONSTRAINT PK_EVENEMENT PRIMARY KEY (idevent)
 ) ENGINE=InnoDB;
