@@ -27,8 +27,18 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/">OpenStreetMap</a> contributors, <a href="https://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="https://www.mapbox.com/">Mapbox</a>',
             maxZoom: 18,
             id: 'mapbox/streets-v11',
-            accessToken: 'pk.eyJ1IjoiYXplbnRpYSIsImEiOiJjazQxOHRqZncwOWE0M2dwb3N2bGFrejcwIn0.9505jZOzU77DvKd7gMujAw'
+            accessToken: 'sk.eyJ1IjoiYXplbnRpYSIsImEiOiJjazQybmJkOHUwMHFuM29wanhsOGd5MG94In0.rYTy8hjTUqYno_0StjrU9w'
         }).addTo(mymap);
+
+        for (var i = 0; i < evenement.length; i++) {
+            var marker = L.marker();
+            var latlng = [evenement[i]['position_lat'], evenement[i]['position_long']];
+            marker.bindPopup(evenement[i]['nomEvent']);
+            marker.on('mouseover', function (e) { this.openPopup(); });
+            marker.on('mouseout', function (e) { this.closePopup(); });
+            marker.setLatLng(latlng);
+            marker.addTo(mymap);
+        }
     </script>
 
 </body>

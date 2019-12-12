@@ -37,7 +37,8 @@ class themeManager
     {
         $q = $this->_db->prepare('SELECT nom FROM theme');
         $q->execute();
-        return $q->fecthAll();
+        return $q->fetchAll();
+
     }
 
     public function selectByNom($theme)

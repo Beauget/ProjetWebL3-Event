@@ -46,7 +46,7 @@ CREATE TABLE EVENEMENT (
   idcontrib INTEGER NOT NULL,
   idtheme INTEGER NOT NULL,
   idlieu INTEGER NOT NULL,
-  description VARCHAR(150),
+  description TEXT,
   dateCRE_E_SUP_E DATE,
   CONSTRAINT PK_EVENEMENT PRIMARY KEY (idevent)
 ) ENGINE=InnoDB;
