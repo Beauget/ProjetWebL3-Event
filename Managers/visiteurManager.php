@@ -59,6 +59,17 @@ class visiteurManager {
     }
 
 
+    public function selectIdByEmail($email) {
+        $q = $this->_db->prepare('SELECT idVisit FROM visiteur WHERE email = :email');
+        $id = 0;
+        $q->bindvalue(':email',$email,PDO::PARAM_STR);
+        $q->execute();
+        $Res = $q->fetch();
+        $id = $Res[0];
+        return $id;
+    }
+
+
 
     public function selectPassword($password,$email) {
         $q = $this->_db->prepare('SELECT idvisit FROM visiteur WHERE email = :email AND password = :password');

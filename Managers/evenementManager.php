@@ -36,4 +36,10 @@ class evenementManager
         $q->execute();
         return $q->fetchAll();
     }
+
+    public function selectAllForDisplay() {
+        $q = $this->_db->prepare('SELECT idevent,nomEvent,dateEvent,effectif_min,effectif_max,description FROM evenement ORDER BY dateEvent');
+        $q->execute();
+        return $q->fetchAll();
+    }
 }

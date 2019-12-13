@@ -18,7 +18,6 @@ class inscrit
                 break;
             default:
                 echo "Le nombre d'argument est incorrect ! ";
-                $this->__destruct();
         }
     }
 
@@ -39,16 +38,16 @@ class inscrit
 
     public function getIdEvent()
     {
-        return this->_idevent;
+        return $this->_idevent;
     }
 
     public function getIdVisit()
     {
-        return this->_idvisit;
+        return $this->_idvisit;
     }
 
     public function getDate()
     {
-        return this->_dateINS;
+        return $this->_dateINS;
     }
 }

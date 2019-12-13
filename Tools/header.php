@@ -29,9 +29,9 @@ if (session_status() == PHP_SESSION_NONE) {
                         Évènements
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=test">évènements</a>
+                        <a class="dropdown-item" href="index.php?page=event">Liste des évenements</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=map">carte des évènements</a>
+                        <a class="dropdown-item" href="index.php?page=map">Carte des évenements</a>
                     </div>
                 </li>
 
