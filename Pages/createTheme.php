@@ -1,14 +1,20 @@
-<form method="post" action="Controllers/createThemeController.php">
-    <div class="form-group">
-        <label for="nomTheme">Nom Theme</label>
-        <input type="text" name="nomTheme" class="form-control" id="nomTheme" aria-describedby="Nom Theme" placeholder="Nom Theme">
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <form method="post" action="Controllers/createThemeController.php">
+                <div class="form-group">
+                    <label for="nomTheme">Nom Theme</label>
+                    <input type="text" name="nomTheme" class="form-control" id="nomTheme" aria-describedby="Nom Theme" placeholder="Nom Theme">
+                </div>
+                <div class="form-group">
+                    <label for="catTheme">Catégorie</label>
+                    <input type="text" name="catTheme" class="form-control" id="catTheme">
+                </div>
+                <button type="submit" class="btn btn-primary">Ajouter Theme</button>
+            </form>
+        </div>
     </div>
-    <div class="form-group">
-        <label for="catTheme">Catégorie</label>
-        <input type="text" name="catTheme" class="form-control" id="catTheme">
-    </div>
-    <button type="submit" class="btn btn-primary">Ajouter Theme</button>
-</form>
+</div>
 <p></p>
 <div class="container">
     <div class="row">
