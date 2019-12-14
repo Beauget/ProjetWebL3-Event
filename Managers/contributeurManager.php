@@ -62,4 +62,11 @@ class ContributeurManager {
         $q->execute();
         return $q->fetchAll();
     }
+
+    public function removeOne(contributeur $contributeur)
+    {
+        $q = $this->_db->prepare('DELETE FROM contributeur WHERE idcontrib = :idcontrib');
+        $q->bindvalue(':idcontrib', $contributeur->getId(), PDO::PARAM_INT);
+        $q->execute();
+    }
 }

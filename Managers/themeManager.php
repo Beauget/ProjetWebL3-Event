@@ -52,7 +52,7 @@ class themeManager
     public function removeOne(theme $theme)
     {
         $q = $this->_db->prepare('DELETE FROM theme WHERE nomTheme = :nomTheme');
-        $q->bindvalue(':idTheme', $theme->getNom(), PDO::PARAM_STR);
+        $q->bindvalue(':nomTheme', $theme->getNom(), PDO::PARAM_STR);
         $q->execute();
     }
 }
