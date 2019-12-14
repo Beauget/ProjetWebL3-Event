@@ -52,7 +52,7 @@ $_SESSION['ok'] = true;
 
   if ($error != 'Password Incorrect') {
     foreach ($allContributeur as $contrib) {
-      if ($contrib[2] == $contributeur->getEmail()) {
+      if ($contrib[2] == $visiteur->getEmail()) {
         $_SESSION['email'] = $contrib[2];
         $_SESSION['pseudo'] = $contrib[6];
         $_SESSION['nom'] = $contrib[3];
