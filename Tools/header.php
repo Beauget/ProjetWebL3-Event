@@ -60,9 +60,9 @@ if (session_status() == PHP_SESSION_NONE) {
                     Contributeur ' . $_SESSION['pseudo'] . '
                     </a>
                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                        <a class="dropdown-item" href="index.php?page=test">Créer</a>
+                        <a class="dropdown-item" href="index.php?page=createEvent">Créer</a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="index.php?page=index">Liste des mes évènements</a>
+                        <a class="dropdown-item" href="index.php?page=event">Liste des évènements</a>
                     </div>
                 </li>' : ''); ?>
 

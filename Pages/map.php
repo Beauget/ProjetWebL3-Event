@@ -17,6 +17,8 @@ $eventArray = $eventManager2->selectAll();
 <script>
  var evenement = <?php  echo json_encode($eventArray); ?>;
 </script>
-
+<?php if(isset($_SESSION['idContributeur'])) {?>
+<a href="index.php?page=createEvent" class="btn btn-info" role="button">Créer un évenement</a>
+<?php } ?>
 <?php include 'MapScript.html'; ?>
 

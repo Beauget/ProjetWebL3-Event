@@ -77,9 +77,7 @@ if (!empty($_GET['error'])) {
         <div class="form-group col-md-6">
             <label for="exampleFormControlTextarea1">Description</label>
             <textarea class="form-control" name="Description" id="exampleFormControlTextarea1" rows="3" placeholder="Limite : 150 caractères"></textarea>
-            <?php if (isset($_SESSION['idContributeur'])) { ?>
             <button type="submit" id="validbutton" class="btn btn-success">Créer un évenement</button>
-            <?php } ?>
         </div>
         <div id="map">
         </div>
