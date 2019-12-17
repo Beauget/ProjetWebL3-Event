@@ -1,7 +1,7 @@
 /*
-Fichier : Creation_BDD_GroupeA.sql
+Fichier : Creation_GroupeA1.sql
 Auteur : Denis Beauget (21608519) Sylvain Courroye (20120447)
-Groupe : Groupe A
+Groupe : Groupe A1
 */
 
 
@@ -149,9 +149,10 @@ CREATE TRIGGER ATTENTION_THEME
 BEFORE DELETE ON THEME 
 FOR EACH ROW
 BEGIN
-	DECLARE
-	nb_events NUMERIC(3);
-	SELECT COUNT(*) INTO nb_events FROM THEME,EVENEMENT WHERE THEME.idtheme = EVENEMENT.idtheme GROUP BY THEME.idtheme;
+	DECLARE nb_events NUMERIC(3);
+	DECLARE idtheme INT;
+	SET idtheme = OLD.idtheme;
+	SELECT COUNT(*) INTO nb_events FROM EVENEMENT WHERE EVENEMENT.idtheme = idtheme;
 	IF nb_events <> 0 THEN
 		signal sqlstate '45000' set message_text = 'Impossible de supprimer ce theme, il est utilisé dans un ou plusieurs évenements existant'; 
 	END IF;
@@ -196,4 +197,32 @@ GROUP BY EVENEMENT.idtheme;
 END; |
 DELIMITER ; 
 
+/* Procédure de moyenne d'effectif pour les événements */
 
+DROP PROCEDURE IF EXISTS MOYENNE_EFFECTIF_EVENT;
+DELIMITER |
+CREATE PROCEDURE MOYENNE_EFFECTIF_EVENT(OUT MoyenneEffectif INT)
+BEGIN
+	DECLARE SumEffectifMax NUMERIC(10);
+	DECLARE SumEffectifMin NUMERIC(10);
+	DECLARE Nb_events NUMERIC(3);
+
+SELECT SUM(effectif_min) INTO SumEffectifMin FROM EVENEMENT;
+SELECT SUM(effectif_max) INTO SumEffectifMax FROM EVENEMENT;
+SELECT COUNT(*) INTO Nb_events FROM EVENEMENT;
+SET MoyenneEffectif = (SumEffectifMin + SumEffectifMax) / Nb_events;
+
+END; |
+DELIMITER ; 
+
+/*Procédure de comptage du lieu le plus utilité */
+
+DROP PROCEDURE IF EXISTS MAX_APPARITION_VILLE;
+DELIMITER |
+CREATE PROCEDURE MAX_APPARITION_Ville(OUT NomVille VARCHAR(50),OUT MaxApparitionVille VARCHAR(50))
+BEGIN
+
+SELECT ville,COUNT(*) AS NbUtilisation INTO NomVille,MaxApparitionVille FROM LIEU GROUP BY ville HAVING COUNT(*) >= ALL(SELECT COUNT(*) FROM LIEU GROUP BY ville);
+
+END ; |
+DELIMITER ;

@@ -1,7 +1,7 @@
 /*
-Fichier : Test_BDD_GroupeA.sql
+Fichier : Test_GroupeA1.sql
 Auteur : Denis Beauget (21608519) Sylvain Courroye (20120447)
-Groupe : Groupe A
+Groupe : Groupe A1
 */
 
 
@@ -32,6 +32,7 @@ INSERT INTO LIEU VALUES('1','Montpellier','Gambetta','5',34000,3.876716,43.61076
 INSERT INTO LIEU VALUES('2','Paris','Place Montmartre','21',78000,2.333333,48.866667);
 INSERT INTO LIEU VALUES('3','Grenoble',' Rue Millet','11',38000,5.724524,45.188529);
 INSERT INTO LIEU VALUES('4','Toulouse','Rue Clément','19',31000,1.433333,43.600000);
+INSERT INTO LIEU VALUES('5','Montpellier','Avenue Assas','32',34000,3.886716,43.620769);
 
 INSERT INTO THEME VALUES('1','Exposition photo','Photo','1',now());
 INSERT INTO THEME VALUES('2','Exposition peinture','Art','1',now());
@@ -52,8 +53,17 @@ SET @nb=0;
 CALL NOMBRE_UTILISATION_THEME(@nb,'1');
 SELECT @nb as NombreTotal;
 
+/* Exemple d'utilisation de la procédure MOYENNE_EFFECTIF_EVENT */
+CALL MOYENNE_EFFECTIF_EVENT(@p0); 
+SELECT @p0 AS `MoyenneEffectif`;
+
+/* Exemple d'utilisation de la procédure MAX_APPARITION_VILLE */
+CALL MAX_APPARITION_Ville(@p0, @p1);
+SELECT @p0 AS `NomVille`, @p1 AS `MaxApparitionVille`;
+
 /* La suppression du theme avec l'id 1 par exemple déclenche le trigger lié au suppression d'un theme et empêche la suppression de celui-ci */
+/* Décommentez la ligne suivante pour avoir le message du trigger */
 
-
+/* DELETE FROM THEME WHERE idtheme = 1; */
 
 
